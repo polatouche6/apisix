@@ -30,5 +30,10 @@ package.path  = pkg_path .. pkg_path_org
 -- pass path to construct the final result
 local env = require("apisix.cli.env")(apisix_home, pkg_cpath_org, pkg_path_org)
 local ops = require("apisix.cli.ops")
-
+print("args:--->", arg)
+if type(arg) == "table" then
+    for k,v in pairs(arg) do
+        print("key:-->", k, "val:-->", v)
+    end
+end
 ops.execute(env, arg)
